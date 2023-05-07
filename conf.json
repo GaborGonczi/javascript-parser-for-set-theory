@@ -1,0 +1,19 @@
+{
+    "plugins":["plugins/markdown"],
+    "markdown":{
+      "idInHeadings":true
+    },
+    "source":{
+      "include":["src","tests"],
+      "includePattern":".js$",
+      "excludePattern":"(node_modules/|docs)"
+    },
+    "templates":{
+      "cleverLinks":true,
+      "monospaceLinks":true
+    },
+    "opts":{
+      "destination":"./docs/content",
+      "recurse":true
+    }
+}
