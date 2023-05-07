@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: lexer.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: lexer.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { TOKEN } from "./token.js";
+/**
+* A class that represents a lexer for a set language.
+* @export
+*/
+export class Lexer{
+    /**
+    * The input string to be tokenized.
+    * @private
+    * @type {string}
+    */
+    #input
+    /**
+    * Creates an instance of Lexer with the given input.
+    * @param {string} [input=""] - The input string to be tokenized.
+    */
+    constructor(input=""){
+        this.#input=input;
+    }
+    /**
+    * Tokenizes the input string and returns an array of tokens.
+    * @returns {Array&lt;{type: string, value: any}>} - The array of tokens.
+    */
+    tokenize(){
+        const tokens=[];
+        let numregexp=new RegExp(TOKEN.NUMBER);
+        let idregexp=new RegExp(TOKEN.IDENTIFIER);
+        let tobeeqregexp=new RegExp(TOKEN.TOBEEQUAL);
+        let lessthanoreqregexp=new RegExp(TOKEN.LESSTHANOREQUAL);
+        let greaterthanoreqregexp=new RegExp(TOKEN.GREATERTHANOREQUAL);
+    
+        for (let i = 0; i &lt; this.#input.length; i++) {
+            let c=this.#input[i];
+            if(numregexp.test(c)){
+                let num=c;
+                while (numregexp.test(num)) {
+                    num+=this.#input[++i]
+                }
+                tokens.push({type:"numericliteral",value:parseFloat(num.slice(0,-1))})
+                --i;
+            }
+            else if(idregexp.test(c)){
+               let id=c;
+               while (idregexp.test(id)) {
+                    id+=this.#input[++i]
+                }
+                tokens.push({type:"identifier",value:id.slice(0,-1)})
+               --i;
+            }
+            else if(tobeeqregexp.test(this.#input[i]+this.#input[i+1])){
+                tokens.push({type:"operator",value:TOKEN.TOBEEQUAL});
+                i++;
+            }
+            else if(lessthanoreqregexp.test(this.#input[i]+this.#input[i+1])){
+                tokens.push({type:"operator",value:TOKEN.LESSTHANOREQUAL});
+                i++;
+            }
+            else if(greaterthanoreqregexp.test(this.#input[i]+this.#input[i+1])){
+                tokens.push({type:"operator",value:TOKEN.GREATERTHANOREQUAL});
+                i++;
+            }
+            else{
+               switch (c) {
+                    case TOKEN.COMPLEMENT:
+                        tokens.push({type:"operator",value:TOKEN.COMPLEMENT});
+                        break;
+                    case TOKEN.ELEMENTOF:
+                        tokens.push({type:"operator",value:TOKEN.ELEMENTOF});
+                        break;
+                    case TOKEN.NOTELEMENTOF:
+                        tokens.push({type:"operator",value:TOKEN.NOTELEMENTOF});
+                        break;
+                    case TOKEN.SUBSETOF:
+                        tokens.push({type:"operator",value:TOKEN.SUBSETOF});
+                        break;
+                    case TOKEN.EQUAL:
+                        tokens.push({type:"operator",value:TOKEN.EQUAL});
+                        break;
+                    case TOKEN.UNION:
+                        tokens.push({type:"operator",value:TOKEN.UNION});
+                        break;
+                    case TOKEN.INTERSECTION:
+                        tokens.push({type:"operator",value:TOKEN.INTERSECTION});
+                        break;
+                    case TOKEN.SETMINUS:
+                        tokens.push({type:"operator",value:TOKEN.SETMINUS});
+                        break;
+                    case TOKEN.COMMA:
+                        tokens.push({type:"separator",value:TOKEN.COMMA});
+                        break;
+                    case TOKEN.VERTICALBAR:
+                        tokens.push({type:"vertical-bar",value:TOKEN.VERTICALBAR});
+                        break;
+                    case TOKEN.LEFTCURLYBRACE:
+                        tokens.push({type:"left-curlybrace",value:TOKEN.LEFTCURLYBRACE});
+                        break;
+                    case TOKEN.RIGHTCURLYBRACE:
+                         tokens.push({type:"right-curlybrace",value:TOKEN.RIGHTCURLYBRACE});
+                         break;
+                    case TOKEN.LESSTHAN:
+                        tokens.push({type:"operator",value:TOKEN.LESSTHAN});
+                        break;
+                    case TOKEN.GREATERTHAN:
+                        tokens.push({type:"operator",value:TOKEN.GREATERTHAN});
+                        break;
+                
+                
+                    default:
+                        tokens.push({type:"undefined",value:this.#input[i],rowPos:i});
+                        return tokens;
+                }
+            }
+        }
+        return tokens
+    }
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Evaluator.html">Evaluator</a></li><li><a href="Lexer.html">Lexer</a></li><li><a href="Parser.html">Parser</a></li><li><a href="Point.html">Point</a></li><li><a href="PointSetDiagramOptions.html">PointSetDiagramOptions</a></li></ul><h3>Global</h3><ul><li><a href="global.html#TOKEN">TOKEN</a></li><li><a href="global.html#add_element">add_element</a></li><li><a href="global.html#are_equal">are_equal</a></li><li><a href="global.html#cardinality">cardinality</a></li><li><a href="global.html#complement">complement</a></li><li><a href="global.html#del_element">del_element</a></li><li><a href="global.html#difference">difference</a></li><li><a href="global.html#draw_horizontal_axes">draw_horizontal_axes</a></li><li><a href="global.html#draw_points">draw_points</a></li><li><a href="global.html#draw_vertical_axes">draw_vertical_axes</a></li><li><a href="global.html#get_canvas_coordinates">get_canvas_coordinates</a></li><li><a href="global.html#illegal_arguments">illegal_arguments</a></li><li><a href="global.html#intersection">intersection</a></li><li><a href="global.html#is_element_of">is_element_of</a></li><li><a href="global.html#is_empty">is_empty</a></li><li><a href="global.html#is_not_element_of">is_not_element_of</a></li><li><a href="global.html#is_number">is_number</a></li><li><a href="global.html#is_point">is_point</a></li><li><a href="global.html#is_point_set">is_point_set</a></li><li><a href="global.html#is_real_subset_of">is_real_subset_of</a></li><li><a href="global.html#is_set">is_set</a></li><li><a href="global.html#is_subset_of">is_subset_of</a></li><li><a href="global.html#is_whole_number">is_whole_number</a></li><li><a href="global.html#point_set_diagram">point_set_diagram</a></li><li><a href="global.html#union">union</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sun May 07 2023 04:24:33 GMT+0200 (közép-európai nyári idő)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
