@@ -1,0 +1,152 @@
+S->STATEMENT eol
+
+STATEMENT->SASSIGNMENT
+           |SELELEMENTOF
+           |SNELEMENTOF
+           |SOFUNCTIONCALL
+           |SFUNCTIONCALL
+           |SEQUAL
+           |SSUBSETOF
+           |SREALSUBSETOF
+           |SCOMPLEMENT
+           |SUNION
+           |SINTERSECTION
+           |SDIFFERENCE
+           |SCARDINALITY;
+            
+
+SASSIGNMENT->identifier tobeequal ASSIGNMENTRHS
+
+
+ASSIGNMENTRHS->leftcurlybrace SETEXP rightcurlybrace
+               |POINT
+
+
+SETEXP->SETLITERAL
+        |SETFORMULA
+
+
+SETLITERAL->WHOLENUMBER comma SETLITERAL
+            |WHOLENUMBER
+
+
+SETFORMULA->identifier verticalline LOGICALEXP
+
+
+LOGICALEXP->LOGICALSUBEXP LOGICALOPERATOR LOGICALEXP 
+            |LOGICALSUBEXP
+
+
+LOGICALSUBEXP->leftparenthesis LOGICALEXP rightparenthesis
+               |identifier COMPARSIONOPERATOR LOGICALRHS
+               |WHOLENUMBER DIVISIBILITYOPERATOR identifier
+
+DIVISIBILITYOPERATOR->divides
+                      |doesnotdivide
+
+LOGICALRHS->identifier SIMPLEOPERATOR WHOLENUMBER
+            |WHOLENUMBER SIMPLEOPERATOR identifier
+            |identifier SIMPLEOPERATOR identifier
+            
+
+SIMPLEOPERATOR->plus
+                |minus
+                |multiply
+                |divide
+
+
+COMPARSIONOPERATOR->greaterthanorequal
+                   |lessthanorequal
+                   |greaterthan
+                   |lessthanor
+                   |equal
+
+
+SELELEMENTOF->WHOLENUMBER elementof identifier
+
+
+SNELEMENTOF->WHOLENUMBER notelementof identifier
+
+
+SOFUNCTIONCALL->identifier dot SOFUNCTIONNAME leftparenthesis ARGUMENTS  rightparenthesis
+
+
+SFUNCTIONCALL->SFUNCTIONNAME leftparenthesis ARGUMENTS rightparenthesis
+
+
+SOFUNCTIONNAME->"add"
+              |"delete"
+
+
+SFUNCTIONNAME->"Venn"
+               |"PointSetDiagram"
+
+
+ARGUMENTS->ARGUMENTS comma ARGUMENT
+           |ARGUMENT
+
+
+ARGUMENT->POINTSETLITERAL
+          |identifier
+          |WHOLENUMBER
+
+
+POINTSETLITERAL->leftcurlybrace POINTS rightcurlybrace
+
+
+POINTS-> POINT comma POINTS
+         |POINT
+
+
+POINT->leftsquarebracket WHOLENUMBER comma WHOLENUMBER rightsquarebracket
+
+
+WHOLENUMBER->minus number
+             |number
+
+
+SEQUAL->identifier equal identifier
+
+
+SSUBSETOF->identifier subsetof identifier
+
+
+SREALSUBSETOF->identifier realsubsetof identifier
+
+
+SCOMPLEMENT->identifier complement SETOPERATION
+             |identifier complement
+
+
+SUNION-> identifier SETOPERATOR SETOPERATION
+         |leftparenthesis SETOPERATION rightparenthesis SETOPERATION
+         |identifier
+
+
+SINTERSECTION-> identifier SETOPERATOR SETOPERATION
+                |identifier
+
+
+SDIFFERENCE->identifier SETOPERATOR identifier
+             |identifier SETOPERATOR leftparenthesis SETOPERATION rightparenthesis
+
+
+SETOPERATION->SUNION
+              |SINTERSECTION
+              |SCOMPLEMENT
+              |SDIFFERENCE
+
+
+SETOPERATOR-> union
+              |intersection
+              |difference
+
+
+SCARDINALITY->verticalline identifier verticalline
+              |verticalline SCOMPLEMENT verticalline
+              |verticalline SUNION verticalline
+              |verticalline SINTERSECTION verticalline
+              |verticalline SDIFFERENCE verticalline
+
+
+SIMPLEEXPRESSION->SCARDINALITY SIMPLEOPERATOR SCARDINALITY

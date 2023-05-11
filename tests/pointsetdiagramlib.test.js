@@ -1,4 +1,4 @@
-import { Point,PointSetDiagramOptions,point_set_diagram } from "../src/pointsetdiagramlib";
+import { Point} from "../src/pointsetdiagramlib";
 
 describe("test point class",()=>{
     test("with coordinates x=1 and y=2",()=>{

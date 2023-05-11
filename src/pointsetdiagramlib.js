@@ -44,6 +44,13 @@ function is_point(point){
 function is_point_set(points){
     return is_set(points)&&[...points].every(point=>is_point(point))
 }
+export function create_set_from_points(){
+    for(const point of arguments){
+        if(!is_point(point)) illegal_arguments("create_set_from_points")
+    }
+    
+    
+}
 /**
 * A class that represents the options for a point set diagram.
 * @export
@@ -163,15 +170,38 @@ export class PointSetDiagramOptions{
     }
     /**
     * Create options for a point set diagram.
-    * @param {object} options - An object containing properties xfrom, xto, yfrom, yto, xscale and yscale.
     */
-    constructor({xfrom,xto,yfrom,yto,xscale,yscale}){
-        this.#xfrom=xfrom;
-        this.#xto=xto;
-        this.#yfrom=yfrom;
-        this.#yto=yto;
-        this.#xscale=xscale;
-        this.#yscale=yscale;
+    constructor(){
+        /**
+        * The lower bound of the x-axis.
+        * @default -10
+        */
+        this.#xfrom=-10;
+        /**
+        * The upper bound of the x-axis.
+        * @default 10
+        */
+        this.#xto=10;
+        /**
+        * The lower bound of the y-axis.
+        * @default -10
+        */
+        this.#yfrom=-10;
+        /**
+        * The upper bound of the y-axis.
+        * @default 10
+        */
+        this.#yto=10;
+        /**
+        * The scale factor of the x-axis.
+        * @default 1
+        */
+        this.#xscale=1;
+        /**
+        * The scale factor of the y-axis.
+        * @default 1
+        */
+        this.#yscale=1;
         this.#computeParams()
 
     }
@@ -309,19 +339,13 @@ export class PointSetDiagramOptions{
 }
 /**
 * Draws a point set diagram on a canvas element and returns its data URL.
+* @function
 * @param {Set} points - An array of objects representing points with x and y properties.
 * @param {PointSetDiagramOptions} [options] - An optional object containing options for the diagram.
 * @returns {string} The data URL of the canvas element.
 * @throws {Error} If points is not a valid point set.
-* @example
-* // Draw a point set diagram with default options
-* point_set_diagram([{x: 1, y: 2}, {x: 3, y: 4}]);
 */
-export function point_set_diagram(points,options=new PointSetDiagramOptions({
-    xfrom:-5,xto:5,
-    yfrom:-5,yto:5,
-    xscale:2,yscale:5
-})){
+export function point_set_diagram(points,options=new PointSetDiagramOptions()){
     if(!is_point_set(points)) illegal_arguments("point_set_diagram")
     const computedParams={
         xfrom:options.get_x_from(),
@@ -353,6 +377,7 @@ export function point_set_diagram(points,options=new PointSetDiagramOptions({
 }
 /**
 * Draws the horizontal axis and labels on the canvas context.
+* @function
 * @param {number} width - The width of the canvas element.
 * @param {CanvasRenderingContext2D} ctx - The canvas rendering context.
 * @param {Object} computedParams - An object containing the computed parameters for the diagram.
@@ -390,6 +415,7 @@ function draw_horizontal_axes(width,ctx,computedParams){
 }
 /**
 * Draws the vertical axis and labels on the canvas context.
+* @function
 * @param {number} height - The height of the canvas element.
 * @param {CanvasRenderingContext2D} ctx - The canvas rendering context.
 * @param {Object} computedParams - An object containing the computed parameters for the diagram.
@@ -424,6 +450,7 @@ function draw_vertical_axes(height,ctx,computedParams){
 }
 /**
 * Draws the points on the canvas context.
+* @function
 * @param {Array} points - An array of objects representing points with x and y properties.
 * @param {CanvasRenderingContext2D} ctx - The canvas rendering context.
 * @param {Object} computedParams - An object containing the computed parameters for the diagram.
@@ -441,6 +468,7 @@ function draw_points(points,ctx,computedParams){
 }
 /**
 * Converts the point coordinates from the diagram space to the canvas space.
+* @function
 * @param {number} pointx - The x coordinate of the point in the diagram space.
 * @param {number} pointy - The y coordinate of the point in the diagram space.
 * @param {Object} computedParams - An object containing the computed parameters for the diagram.
