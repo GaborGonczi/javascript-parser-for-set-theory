@@ -106,5 +106,11 @@ dist
 # Visual Studio 2019 cache/options directory
 .vs/
 
+# Visual Studio Code settings for development
+.vscode/
+
+#VSCodeCounter
+.VSCodeCounter/
+
 # Deprecated files related to project
 deprecated/

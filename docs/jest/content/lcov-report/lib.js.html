@@ -334,16 +334,7 @@
 <a name='L269'></a><a href='#L269'>269</a>
 <a name='L270'></a><a href='#L270'>270</a>
 <a name='L271'></a><a href='#L271'>271</a>
-<a name='L272'></a><a href='#L272'>272</a>
-<a name='L273'></a><a href='#L273'>273</a>
-<a name='L274'></a><a href='#L274'>274</a>
-<a name='L275'></a><a href='#L275'>275</a>
-<a name='L276'></a><a href='#L276'>276</a>
-<a name='L277'></a><a href='#L277'>277</a>
-<a name='L278'></a><a href='#L278'>278</a>
-<a name='L279'></a><a href='#L279'>279</a>
-<a name='L280'></a><a href='#L280'>280</a>
-<a name='L281'></a><a href='#L281'>281</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L272'></a><a href='#L272'>272</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -390,7 +381,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">111x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -450,11 +440,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -477,10 +464,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -522,7 +507,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -543,7 +527,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -586,7 +569,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -623,7 +605,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Point,PointSetDiagramOptions,point_set_diagram } from "./pointsetdiagramlib";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Point, PointSetDiagramOptions, point_set_diagram } from "./pointsetdiagramlib.js";
 &nbsp;
 /**
 * Determines whether the given element is a number.
@@ -631,8 +613,8 @@
 * @param {any} elem - The input element.
 * @returns {boolean} True if the input element is a number; false otherwise.
 */
-export function is_number(elem){
-    return typeof elem ==="number";
+export function is_number(elem) {
+    return typeof elem === "number";
 }
 /**
 * Determines whether the given literal is a string.
@@ -640,8 +622,8 @@ export function is_number(elem){
 * @param {any} literal - The input literal.
 * @returns {boolean} True if the value is a string; false otherwise.
 */
-export function is_string(literal){
-    return typeof literal==="string";
+export function is_string(literal) {
+    return typeof literal === "string";
 }
 /**
 * Determines whether the given ufunction is a function.
@@ -649,8 +631,8 @@ export function is_string(literal){
 * @param {any} ufunction - The input literal.
 * @returns {boolean} True if the value is a function; false otherwise.
 */
-export function is_function(ufunction){
-    return typeof ufunction==="function"
+export function is_function(ufunction) {
+    return typeof ufunction === "function"
 }
 /**
 * Determines whether the given element is a whole number.
@@ -658,9 +640,9 @@ export function is_function(ufunction){
 * @param {any} elem - The input element.
 * @returns {boolean} True if the input element is a whole number; false otherwise.
 */
-export function is_whole_number(elem){
-    let macher=new RegExp('^(0|-?[1-9][0-9]*)$');
-     return is_number(elem)&amp;&amp; macher.test(elem);
+export function is_whole_number(elem) {
+    let macher = new RegExp('^(0|-?[1-9][0-9]*)$');
+    return is_number(elem) &amp;&amp; macher.test(elem);
 }
 /**
 * Determines whether the given object is a Set object.
@@ -668,16 +650,15 @@ export function is_whole_number(elem){
 * @param {Set} set - The input object.
 * @returns {boolean} True if the input object is a Set object; false otherwise.
 */
-export function is_set(set){
+export function is_set(set) {
     return typeof set === "object" &amp;&amp; set instanceof Set
-    
 }
 /**
 * Thrown as an exception by other functions, if arguments are illegal passed to a caller
 * @function
 * @param {string} func_name - The name of the function that received illegal arguments.
 */
-export function <span class="fstat-no" title="function not covered" >illegal_arguments(</span>func_name){
+export function <span class="fstat-no" title="function not covered" >illegal_arguments(</span>func_name) {
 <span class="cstat-no" title="statement not covered" >    return new Error(`Illegal arguments of a function ${func_name}`);</span>
 }
 /**
@@ -686,10 +667,10 @@ export function <span class="fstat-no" title="function not covered" >illegal_arg
 * @returns {Set} A set object containing the numbers from the string literal.
 * @throws {Error} If the argument is not a string.
 */
-export function create_set_from_literal(setliteral){
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_string(setliteral)) <span class="cstat-no" title="statement not covered" >illegal_arguments("create_set_from_literal")</span>
-    const result=new Set();
-    setliteral.slice(1,-1).split(',').forEach(elem=&gt;{
+export function create_set_from_literal(setliteral) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_string(setliteral)) <span class="cstat-no" title="statement not covered" >illegal_arguments("create_set_from_literal")</span>
+    const result = new Set();
+    setliteral.slice(1, -1).split(',').forEach(elem =&gt; {
         result.add(parseFloat(elem))
     })
     return result;
@@ -702,9 +683,9 @@ export function create_set_from_literal(setliteral){
 * @returns {Set} A set object containing the numbers generated by the formula.
 * @throws {Error} If any of the arguments are invalid.
 */
-export function create_set_from_formula(start,end,formula){
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_whole_number(start)||!is_whole_number(end)||!is_function(formula)) <span class="cstat-no" title="statement not covered" >return illegal_arguments("create_set_from_formula")</span>
-    const result= new Set();
+export function create_set_from_formula(start, end, formula) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_whole_number(start) || !is_whole_number(end) || !is_function(formula)) <span class="cstat-no" title="statement not covered" >return illegal_arguments("create_set_from_formula")</span>
+    const result = new Set();
     for (let i = start; i &lt;= end; i++) {
         result.add(formula(i));
     }
@@ -717,11 +698,9 @@ export function create_set_from_formula(start,end,formula){
 * @returns {boolean} True if the input set is empty; false otherwise.
 * @throws {Error} If the input argument is not a Set object.
 */
-export function is_empty(set){
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_set(set)) <span class="cstat-no" title="statement not covered" >illegal_arguments('is_empty')</span>
-    return set.size===0;
-    //return cardinality(set)===0;
-&nbsp;
+export function is_empty(set) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_set(set)) <span class="cstat-no" title="statement not covered" >illegal_arguments('is_empty')</span>
+    return set.size === 0;
 }
 /**
 * Determines whether the given element is an element of the given set.
@@ -731,10 +710,9 @@ export function is_empty(set){
 * @returns {boolean} True if the input element is an element of the input set; false otherwise.
 * @throws {Error} If either argument is not a whole number or if the second argument is not a Set object.
 */
-export function is_element_of(elem, set){
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_whole_number(elem)||!is_set(set)) <span class="cstat-no" title="statement not covered" >illegal_arguments("is_element_of")</span>
+export function is_element_of(elem, set) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_whole_number(elem) || !is_set(set)) <span class="cstat-no" title="statement not covered" >illegal_arguments("is_element_of")</span>
     return set.has(elem)
-   
 }
 /**
 * Determines whether the given element is not an element of the given set.
@@ -744,10 +722,9 @@ export function is_element_of(elem, set){
 * @returns {boolean} True if the input element is not an element of the input set; false otherwise.
 * @throws {Error} If either argument is not a whole number or if the second argument is not a Set object.
 */
-export function is_not_element_of(elem,set){
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_whole_number(elem)||!is_set(set)) <span class="cstat-no" title="statement not covered" >illegal_arguments("is_not_element_of")</span>
-    return !is_element_of(elem,set)
-   
+export function is_not_element_of(elem, set) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_whole_number(elem) || !is_set(set)) <span class="cstat-no" title="statement not covered" >illegal_arguments("is_not_element_of")</span>
+    return !is_element_of(elem, set)
 }
 /**
 * Determines whether two sets are equal to each other (i.e., have exactly the same elements).
@@ -757,10 +734,9 @@ export function is_not_element_of(elem,set){
 * @returns {boolean} True if both sets are equal; false otherwise.
 * @throws {Error} If either argument is not a Set object.
 */
-export function are_equal(setA,setB){
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_set(setA)||!is_set(setB)) <span class="cstat-no" title="statement not covered" >illegal_arguments("are_equal")</span>
-    return is_empty(difference(setA,setB))&amp;&amp;is_empty(difference(setB,setA))
-&nbsp;
+export function are_equal(setA, setB) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_set(setA) || !is_set(setB)) <span class="cstat-no" title="statement not covered" >illegal_arguments("are_equal")</span>
+    return is_empty(difference(setA, setB)) &amp;&amp; is_empty(difference(setB, setA))
 }
 /**
 * Determines whether setA is a subset of setB.
@@ -770,8 +746,8 @@ export function are_equal(setA,setB){
 * @returns {boolean} True if setA is a subset of setB; false otherwise.
 * @throws {Error} If either argument is not a Set object.
 */
-export function is_subset_of(setA,setB){
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_set(setA)||!is_set(setB)) <span class="cstat-no" title="statement not covered" >illegal_arguments("is_subset_of")</span>
+export function is_subset_of(setA, setB) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_set(setA) || !is_set(setB)) <span class="cstat-no" title="statement not covered" >illegal_arguments("is_subset_of")</span>
     for (const i of setA) {
         if (!setB.has(i)) {
             return false
@@ -787,9 +763,9 @@ export function is_subset_of(setA,setB){
 * @returns {boolean} True if setA is a real subset of setB; false otherwise.
 * @throws {Error} If either argument is not a Set object.
 */
-export function is_real_subset_of(setA,setB){
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_set(setA)||!is_set(setB)) <span class="cstat-no" title="statement not covered" >illegal_arguments("is_real_subset_of")</span>
-    return is_subset_of(setA,setB) &amp;&amp; !are_equal(setA,setB);
+export function is_real_subset_of(setA, setB) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_set(setA) || !is_set(setB)) <span class="cstat-no" title="statement not covered" >illegal_arguments("is_real_subset_of")</span>
+    return is_subset_of(setA, setB) &amp;&amp; !are_equal(setA, setB);
 }
 /**
 * Returns the complement of a given set with respect to the given universe.
@@ -799,10 +775,9 @@ export function is_real_subset_of(setA,setB){
 * @returns {Set} The complement of the input set with respect to the universe.
 * @throws {Error} If either argument is not a Set object.
 */
-export function complement(setA, Universe){
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_set(setA)||!is_set(Universe)) <span class="cstat-no" title="statement not covered" >illegal_arguments("complement")</span>
-    return difference(Universe,setA);
-&nbsp;
+export function complement(setA, Universe) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_set(setA) || !is_set(Universe)) <span class="cstat-no" title="statement not covered" >illegal_arguments("complement")</span>
+    return difference(Universe, setA);
 }
 /**
 * Returns the union of two or more sets.
@@ -811,19 +786,18 @@ export function complement(setA, Universe){
 * @returns {Set} The union of all input sets.
 * @throws {Error} If any argument is not a Set object.
 */
-export function union(...sets){
+export function union(...sets) {
 &nbsp;
     for (const set of sets) {
-        <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_set(set)) <span class="cstat-no" title="statement not covered" >illegal_arguments("union")</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_set(set)) <span class="cstat-no" title="statement not covered" >illegal_arguments("union")</span>
     }
     const result = new Set();
     for (const set of sets) {
         for (const element of set) {
-          result.add(element);
+            result.add(element);
         }
     }
     return result;
-    
 }
 /**
 * Returns the intersection of two or more sets.
@@ -832,11 +806,11 @@ export function union(...sets){
 * @returns {Set} The intersection of all input sets.
 * @throws {Error} If any argument is not a Set object.
 */
-export function intersection(...sets){
+export function intersection(...sets) {
     for (const set of sets) {
-        <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_set(set)) <span class="cstat-no" title="statement not covered" >illegal_arguments("intersection");</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_set(set)) <span class="cstat-no" title="statement not covered" >illegal_arguments("intersection");</span>
     }
-    return sets.reduce((accumulator, currentSet) =&gt;{
+    return sets.reduce((accumulator, currentSet) =&gt; {
         return new Set([...accumulator].filter(element =&gt; currentSet.has(element)));
     });
 }
@@ -848,16 +822,15 @@ export function intersection(...sets){
 * @returns {Set} - The difference between the two sets.
 * @throws {Error} - If either argument is not a set.
 */
-export function difference(setA,setB){
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_set(setA)||!is_set(setB)) <span class="cstat-no" title="statement not covered" >illegal_arguments("difference")</span>
-    const result=new Set();
+export function difference(setA, setB) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_set(setA) || !is_set(setB)) <span class="cstat-no" title="statement not covered" >illegal_arguments("difference")</span>
+    const result = new Set();
     for (const element of setA) {
         if (!setB.has(element)) {
             result.add(element);
         }
     }
     return result
-   
 }
 /**
 * Calculates the cardinality of a set.
@@ -866,8 +839,8 @@ export function difference(setA,setB){
 * @returns {number} - The cardinality of the set.
 * @throws {Error} - If the argument is not a set.
 */
-export function cardinality(set){
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_set(set)) <span class="cstat-no" title="statement not covered" >illegal_arguments("cardinality")</span>
+export function cardinality(set) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_set(set)) <span class="cstat-no" title="statement not covered" >illegal_arguments("cardinality")</span>
     return set.size
 }
 /**
@@ -878,10 +851,10 @@ export function cardinality(set){
 * @returns {boolean} - True if the element was added successfully, false otherwise.
 * @throws {Error} - If either argument is not a set or if elem is not a whole number.
 */
-export function add_element(elem,set){
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_set(set)||!is_whole_number(elem)) <span class="cstat-no" title="statement not covered" >illegal_arguments("add_element")</span>
-    let oldSize=set.size;
-    return set.has(elem)|| (set.add(elem).size===oldSize+1);
+export function add_element(elem, set) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_set(set) || !is_whole_number(elem)) <span class="cstat-no" title="statement not covered" >illegal_arguments("add_element")</span>
+    let oldSize = set.size;
+    return set.has(elem) || (set.add(elem).size === oldSize + 1);
 }
 /**
 * Deletes an element from a set.
@@ -891,26 +864,26 @@ export function add_element(elem,set){
 * @returns {boolean} - True if the element was deleted successfully, false otherwise.
 * @throws {Error} - If either argument is not a set or if elem is not a whole number.
 */
-export function del_element(elem,set){
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(!is_set(set)||!is_whole_number(elem)) <span class="cstat-no" title="statement not covered" >illegal_arguments("del_element")</span>
-    return !set.has(elem)|| (set.delete(elem)===true)
+export function del_element(elem, set) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!is_set(set) || !is_whole_number(elem)) <span class="cstat-no" title="statement not covered" >illegal_arguments("del_element")</span>
+    return !set.has(elem) || (set.delete(elem) === true)
 }
-export function <span class="fstat-no" title="function not covered" >Venn(</span>){
+export function <span class="fstat-no" title="function not covered" >Venn(</span>) {
     //TODO:Implement the function which retuns an image about the Venn diagrams of the given sets
 }
 // inclusion–exclusion principle-logikai szita
-export function <span class="fstat-no" title="function not covered" >IEP(</span>){
+export function <span class="fstat-no" title="function not covered" >IEP(</span>) {
     //TODO:Implement the function
 }
 &nbsp;
-export {Point,PointSetDiagramOptions,point_set_diagram};</pre></td></tr></table></pre>
+export { Point, PointSetDiagramOptions, point_set_diagram };</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-05-11T03:09:03.814Z
+                at 2023-05-23T20:23:51.551Z
             </div>
         <script src="prettify.js"></script>
         <script>

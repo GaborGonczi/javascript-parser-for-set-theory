@@ -1,4 +1,4 @@
-import { Point, PointSetDiagramOptions, point_set_diagram } from "./pointsetdiagramlib";
+import { Point, PointSetDiagramOptions, point_set_diagram } from "./pointsetdiagramlib.js";
 
 /**
 * Determines whether the given element is a number.

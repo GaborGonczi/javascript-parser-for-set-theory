@@ -1,4 +1,5 @@
 import { TOKEN } from "./token.js";
+import {BUILTIN} from "./builtin.js"
 /**
 * A class that represents a lexer for a set language.
 * @export
@@ -49,7 +50,9 @@ export class Lexer{
                while (idregexp.test(id)) {
                     id+=this.#input[++i]
                 }
-                tokens.push({type:this.#getTokenName(TOKEN,TOKEN.IDENTIFIER),value:id.slice(0,-1)})
+                id=id.slice(0,-1);
+                if(BUILTIN.includes(id)) tokens.push({type:"builtin", value:id})
+                else tokens.push({type:this.#getTokenName(TOKEN,TOKEN.IDENTIFIER),value:id})
                 --i
             }
             else if(tobeeqregexp.test(this.#input[i]+this.#input[i+1])){

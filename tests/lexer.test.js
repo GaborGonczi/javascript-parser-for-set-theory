@@ -86,7 +86,7 @@ describe("Test lexer with different inputs ",()=>{
         expect(lexer.tokenize()).toStrictEqual([
             {type:"identifier",value:"A"},
             {type:"dot",value:"."},
-            {type:"identifier",value:"add"},
+            {type:"builtin",value:"add"},
             {type:"leftparenthesis",value:"("},
             {type:"number",value:2},
             {type:"rightparenthesis",value:")"},
@@ -99,7 +99,7 @@ describe("Test lexer with different inputs ",()=>{
         expect(lexer.tokenize()).toStrictEqual([
             {type:"identifier",value:"B"},
             {type:"dot",value:"."},
-            {type:"identifier",value:"delete"},
+            {type:"builtin",value:"delete"},
             {type:"leftparenthesis",value:"("},
             {type:"number",value:1},
             {type:"rightparenthesis",value:")"},
@@ -110,7 +110,7 @@ describe("Test lexer with different inputs ",()=>{
     test("Venn(A,B)",()=>{
         const lexer=new Lexer("Venn(A,B)")
         expect(lexer.tokenize()).toStrictEqual([
-            {type:"identifier",value:"Venn"},
+            {type:"builtin",value:"Venn"},
             {type:"leftparenthesis",value:"("},
             {type:"identifier",value:"A"},
             {type:"comma",value:","},
@@ -495,7 +495,7 @@ describe("Test lexer with different inputs ",()=>{
     test("PointSetDiagram(A,B)",()=>{
         const lexer=new Lexer("PointSetDiagram(A,B)")
         expect(lexer.tokenize()).toStrictEqual([
-            {type:"identifier",value:"PointSetDiagram"},
+            {type:"builtin",value:"PointSetDiagram"},
             {type:"leftparenthesis",value:"("},
             {type:"identifier",value:"A"},
             {type:"comma",value:","},
@@ -508,7 +508,7 @@ describe("Test lexer with different inputs ",()=>{
     test("PointSetDiagram({[3,5],[-7,-8]})",()=>{
         const lexer=new Lexer("PointSetDiagram({[3,5],[-7,-8]})")
         expect(lexer.tokenize()).toStrictEqual([
-            {type:"identifier",value:"PointSetDiagram"},
+            {type:"builtin",value:"PointSetDiagram"},
             {type:"leftparenthesis",value:"("},
             {type:"leftcurlybrace",value:"{"},
             {type:"leftsquarebracket",value:"["},

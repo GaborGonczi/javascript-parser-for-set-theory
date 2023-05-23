@@ -1,5 +1,5 @@
 import { createCanvas } from 'canvas';
-import {is_number,is_whole_number, is_set, illegal_arguments } from "./lib";
+import {is_number,is_whole_number, is_set, illegal_arguments } from "./lib.js";
 /**
 * A class that represents a single two dimensional point.
 * @export

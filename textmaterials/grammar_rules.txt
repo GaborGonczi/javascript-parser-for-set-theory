@@ -1,4 +1,4 @@
-S->STATEMENT eol
+S->STATEMENT eol.
 
 STATEMENT->SASSIGNMENT
            |SELELEMENTOF
@@ -12,141 +12,147 @@ STATEMENT->SASSIGNMENT
            |SUNION
            |SINTERSECTION
            |SDIFFERENCE
-           |SCARDINALITY;
+           |SCARDINALITY
+           |SSIMPLEEXPRESSION.
             
 
-SASSIGNMENT->identifier tobeequal ASSIGNMENTRHS
+SASSIGNMENT->identifier tobeequal ASSIGNMENTRHS.
 
 
 ASSIGNMENTRHS->leftcurlybrace SETEXP rightcurlybrace
-               |POINT
+               |POINT.
 
 
 SETEXP->SETLITERAL
-        |SETFORMULA
+        |SETFORMULA.
 
 
 SETLITERAL->WHOLENUMBER comma SETLITERAL
-            |WHOLENUMBER
+            |WHOLENUMBER.
 
 
-SETFORMULA->identifier verticalline LOGICALEXP
+SETFORMULA->identifier verticalline LOGICALEXP.
 
 
-LOGICALEXP->LOGICALSUBEXP LOGICALOPERATOR LOGICALEXP 
-            |LOGICALSUBEXP
+LOGICALEXP->LOGICALSUBEXP LOGICALOPERATOR LOGICALEXP
+            |LOGICALSUBEXP.
+
+ LOGICALOPERATOR->land
+                  |lor.       
 
 
 LOGICALSUBEXP->leftparenthesis LOGICALEXP rightparenthesis
                |identifier COMPARSIONOPERATOR LOGICALRHS
-               |WHOLENUMBER DIVISIBILITYOPERATOR identifier
+               |WHOLENUMBER DIVISIBILITYOPERATOR identifier.
 
 DIVISIBILITYOPERATOR->divides
-                      |doesnotdivide
+                      |doesnotdivide.
 
 LOGICALRHS->identifier SIMPLEOPERATOR WHOLENUMBER
             |WHOLENUMBER SIMPLEOPERATOR identifier
-            |identifier SIMPLEOPERATOR identifier
+            |identifier SIMPLEOPERATOR identifier.
             
 
 SIMPLEOPERATOR->plus
                 |minus
                 |multiply
-                |divide
+                |divide.
 
 
 COMPARSIONOPERATOR->greaterthanorequal
                    |lessthanorequal
                    |greaterthan
                    |lessthanor
-                   |equal
+                   |equal.
 
 
-SELELEMENTOF->WHOLENUMBER elementof identifier
+SELELEMENTOF->WHOLENUMBER elementof identifier.
 
 
-SNELEMENTOF->WHOLENUMBER notelementof identifier
+SNELEMENTOF->WHOLENUMBER notelementof identifier.
 
 
-SOFUNCTIONCALL->identifier dot SOFUNCTIONNAME leftparenthesis ARGUMENTS  rightparenthesis
+SOFUNCTIONCALL->identifier dot SOFUNCTIONNAME leftparenthesis ARGUMENTS  rightparenthesis.
 
 
-SFUNCTIONCALL->SFUNCTIONNAME leftparenthesis ARGUMENTS rightparenthesis
+SFUNCTIONCALL->SFUNCTIONNAME leftparenthesis ARGUMENTS rightparenthesis.
 
 
 SOFUNCTIONNAME->"add"
-              |"delete"
+              |"delete".
 
 
 SFUNCTIONNAME->"Venn"
-               |"PointSetDiagram"
+               |"PointSetDiagram".
 
 
 ARGUMENTS->ARGUMENTS comma ARGUMENT
-           |ARGUMENT
+           |ARGUMENT.
 
 
 ARGUMENT->POINTSETLITERAL
           |identifier
-          |WHOLENUMBER
+          |WHOLENUMBER.
 
 
-POINTSETLITERAL->leftcurlybrace POINTS rightcurlybrace
+POINTSETLITERAL->leftcurlybrace POINTS rightcurlybrace.
 
 
 POINTS-> POINT comma POINTS
-         |POINT
+         |POINT.
 
 
-POINT->leftsquarebracket WHOLENUMBER comma WHOLENUMBER rightsquarebracket
+POINT->leftsquarebracket WHOLENUMBER comma WHOLENUMBER rightsquarebracket.
 
 
 WHOLENUMBER->minus number
-             |number
+             |number.
 
 
-SEQUAL->identifier equal identifier
+SEQUAL->identifier equal identifier.
 
 
-SSUBSETOF->identifier subsetof identifier
+SSUBSETOF->identifier subsetof identifier.
 
 
-SREALSUBSETOF->identifier realsubsetof identifier
+SREALSUBSETOF->identifier realsubsetof identifier.
 
 
-SCOMPLEMENT->identifier complement SETOPERATION
-             |identifier complement
+SCOMPLEMENT->identifier complement SETOPERATOR SETOPERATION
+             |leftparenthesis SETOPERATION rightparenthesis SETOPERATION
+             |identifier complement.
 
 
 SUNION-> identifier SETOPERATOR SETOPERATION
          |leftparenthesis SETOPERATION rightparenthesis SETOPERATION
-         |identifier
+         |identifier.
 
 
 SINTERSECTION-> identifier SETOPERATOR SETOPERATION
-                |identifier
+                |leftparenthesis SETOPERATION rightparenthesis SETOPERATION
+                |identifier.
 
 
 SDIFFERENCE->identifier SETOPERATOR identifier
-             |identifier SETOPERATOR leftparenthesis SETOPERATION rightparenthesis
+             |identifier SETOPERATOR leftparenthesis SETOPERATION rightparenthesis.
 
 
 SETOPERATION->SUNION
               |SINTERSECTION
               |SCOMPLEMENT
-              |SDIFFERENCE
+              |SDIFFERENCE.
 
 
 SETOPERATOR-> union
               |intersection
-              |difference
+              |difference.
 
 
 SCARDINALITY->verticalline identifier verticalline
               |verticalline SCOMPLEMENT verticalline
               |verticalline SUNION verticalline
               |verticalline SINTERSECTION verticalline
-              |verticalline SDIFFERENCE verticalline
+              |verticalline SDIFFERENCE verticalline.
 
 
-SIMPLEEXPRESSION->SCARDINALITY SIMPLEOPERATOR SCARDINALITY
+SSIMPLEEXPRESSION->SCARDINALITY SIMPLEOPERATOR SCARDINALITY.
